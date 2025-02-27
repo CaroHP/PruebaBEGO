@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <title>Cargo Orders</title>
+</head>
+
+<body class="bg-black text-white p-4">
+    <div class="max-w-md mx-auto">
+        <div class="mb-6">
+            <!-- Hader -->
+            <div class="row">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                <h1 class="header">Cargo Orders</h1>
+                <span style="color: yellow">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="tabs">
+                <li *ngFor="let tab of tabs; let i = index" [class.active]="activeTabIndex === i"
+                    (click)="setActiveTab(i)">
+                    <a href="#">{{ tab }}</a>
+                    <span class="tab-line"></span>
+                </li>
+            </ul>
+
+            <!-- Search -->
+            <div class="search-container">
+                <span class="search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <!-- card 1 -->
+            <div class="cards-container">
+                <div *ngFor="let order of orders">
+                    <!-- Order ID -->
+                    <p class="order-id">Order <span>{{ order.orderId }}</span></p>
+                    <div class="glass-card">
+
+
+                        <!-- Primera fila: "FCL" y "In Transit" -->
+                        <div class="row">
+                            <span id="container-card-header">
+                                <i class="fa fa-truck" aria-hidden="true"></i>
+                                <p class="order-type">{{ order.type }}</p>
+                            </span>
+                            <span id="container-card-header">
+                                <div id="circle"></div>
+                                <p class="status">{{ order.status }}</p>
+                            </span>
+                        </div>
+
+                        <div class="row">
+                            <hr id="horizontal">
+                        </div>
+
+                        <div class="row">
+                            <div class="column">
+                                <i class="fa fa-truck" aria-hidden="true"></i>
+                                <hr id="vertical">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="column">
+                                <!-- Pickup -->
+                                <div class="column">
+                                    <div class="row">
+                                        <p class="small-text">Pickup</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="location-name">{{ order.pickupLocation }}</p>
+                                        <p class="time">{{ order.pickupTime }}</p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p class="address">{{ order.pickupAddress }}</p>
+                                        <p class="date">{{ order.pickupDate }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Dropoff -->
+                                <div class="column">
+                                    <div class="row">
+                                        <p class="small-text">Dropoff</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="location-name">{{ order.dropoffLocation }}</p>
+                                        <p class="time">{{ order.dropoffTime }}</p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p class="address">{{ order.dropoffAddress }}</p>
+                                        <p class="date">{{ order.dropoffDate }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Tercera fila: Botones -->
+                        <div class="row">
+                            <button *ngIf="order.showButtonLeft" class="buttonLeft">{{ order.pickupButtonText }}</button>
+                            <button *ngIf="order.showButtonRight" class="buttonRight">
+                                {{ order.resumeButtonText }}
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- card 2 -->
+
+
+        </div>
+    </div>
+</body>
+
+</html>
