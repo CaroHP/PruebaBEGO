@@ -13,7 +13,7 @@ export class Pantalla1Component {
   tabs: string[] = ['Upcoming', 'Completed', 'Past'];
   activeTabIndex: number = 0;
 
-  // Método para cambiar la pestaña activa
+  //Cambiar de Pestania
   setActiveTab(index: number): void {
     this.activeTabIndex = index;
   }
@@ -27,7 +27,7 @@ export class Pantalla1Component {
       showCircle: true,
       pickupLocation: 'New York',
       pickupTime: '12:00pm',
-      pickupAddress: '25 Mortada street',
+      pickupAddress: '25 Mortada street, Gainalkes...',
       pickupDate: '12/09/2023',
       dropoffLocation: 'New York',
       dropoffTime: '12:00pm',
@@ -39,18 +39,18 @@ export class Pantalla1Component {
       resumeButtonText: 'Resume'
     },
     {
-      orderId: '#ASI890EY4',
+    orderId: '#ASI890EY4',
       type: 'FTL',
       status: 'Delivered',
       showCircle: false,
       pickupLocation: 'Los Angeles',
       pickupTime: '1:00pm',
-      pickupAddress: '123 Sunset Blvd',
-      pickupDate: '15/09/2023',
+      pickupAddress: '25 Mort',
+      pickupDate: '12/09/2023',
       dropoffLocation: 'Chicago',
       dropoffTime: '2:00pm',
-      dropoffAddress: '456 Oak Street',
-      dropoffDate: '16/09/2023',
+      dropoffAddress: '456 Oak street fadiaofjdda fajsdiofjao',
+      dropoffDate: '12/09/2023',
       showButtonLeft: false,
       pickupButtonText: "It's time for pickup",
       showButtonRight: true,

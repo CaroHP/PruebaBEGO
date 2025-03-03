@@ -4,10 +4,10 @@ body {
     color: #ededed;
     background: #080c0f;
     font-family: "Segoe UI", sans-serif;
-    padding: 4px;
+    padding: 30px 10px 0px 10px;
 }
 
-h1{
+h1 {
     font-size: 20px;
     color: #EDEDED;
 }
@@ -52,16 +52,15 @@ a {
     position: absolute;
     bottom: 0;
     border-radius: 10px;
-    left: 50%;
+    left: 30%;
     transform: translateX(-50%);
     width: 25%;
-    height: 2.5px;
+    height: 2px;
     background-color: #FFEE00;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
-//Linea Tab activa
 li.active .tab-line {
     opacity: 1;
 }
@@ -79,10 +78,12 @@ li.active .tab-line {
 
 }
 
-p span:only-of-type{
-    font-weight: 800;
-    text-transform: uppercase;
-
+p span:only-of-type {
+    font-weight: 600;
+    font-size: 17.3px;
+    line-height: 20.94px;
+    letter-spacing: 0%;
+    color: #EDEDED;
 }
 
 .order-id {
@@ -101,7 +102,7 @@ p span:only-of-type{
     background-clip: padding-box;
     backdrop-filter: 0px;
     position: relative;
-    border-radius: 16px;
+    border-radius: 20px;
     max-width: 400px;
     color: white;
 }
@@ -110,12 +111,12 @@ p span:only-of-type{
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 16px;
-    padding: 1px;
-    background: radial-gradient(101.94% 299.93% at 63.49% 102.55%, 
-        #000000 21.31%, 
-        rgba(186, 186, 186, 0.489583) 55.21%, 
-        rgba(132, 132, 132, 0) 99.25%);
+    border-radius: 20px;
+    padding: 1.5px;
+    background: radial-gradient(101.94% 299.93% at 63.49% 102.55%,
+            #000000 21.31%,
+            rgba(186, 186, 186, 0.489583) 55.21%,
+            rgba(132, 132, 132, 0) 99.25%);
     mask: 0;
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
@@ -163,8 +164,12 @@ p span:only-of-type{
 }
 
 .order-type {
-    font-weight: bold;
-    color: #ededed;
+    font-family: Avenir;
+    font-weight: 800;
+    font-size: 15.5px;
+    line-height: 21.17px;
+    letter-spacing: 0%;
+    color: #EDEDED;
     margin-left: 20px;
 }
 
@@ -185,34 +190,46 @@ p span:only-of-type{
 
 .small-text {
     justify-content: flex-start;
-    font-size: 7.9px;
     text-transform: uppercase;
-    color: #a6a8ab;
+    font-family: Avenir;
+    font-weight: 800;
+    font-size: 7.9px;
+    line-height: 10.79px;
+    letter-spacing: 0%;
+    color: #535455;
+
 }
 
 .location-name {
-    margin: 0;
+    font-family: Avenir;
+    font-weight: 800;
     font-size: 15.5px;
-    color: #959798;
+    line-height: 21.17px;
+    letter-spacing: 0%;
+    color: #EDEDED;
 }
 
 .address {
+    font-family: Avenir;
+    font-weight: 500;
+    font-size: 12.6px;
+    line-height: 17.21px;
+    letter-spacing: 0%;
     margin: 0px;
-    font-size: 10.6px;
-    color: #959798;
+    color: #909192;
 }
 
 .time {
     font-size: 12.2px;
-    color: #696A6B;
-}
-
-.date {
-    font-size: 16.67px;
     color: #bbbbbb;
 }
 
-.button-row{
+.date {
+    font-size: 10.6px;
+    color: #696A6B;
+}
+
+.button-row {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -227,11 +244,12 @@ p span:only-of-type{
     font-family: "Segoe UI", sans-serif;
     font-size: 16px;
     text-align: center;
-    border-radius: 0px 20px 20px 12px;
+    border-radius: 0px 30px 30px 16px;
     border: 0;
     color: #080c0f;
     background-color: #FFEE00;
     cursor: pointer;
+    box-shadow: inset -4px -4px 4px 0px #C2B500;
 }
 
 .buttonRight {
@@ -242,10 +260,10 @@ p span:only-of-type{
     font-family: "Segoe UI", sans-serif;
     font-size: 16px;
     text-align: center;
-    border-radius: 20px 0px 12px 20px;
+    border-radius: 30px 0px 16px 30px;
     border: 0;
     color: #080c0f;
     background: #FFEE00;
     cursor: pointer;
+    box-shadow: inset -4px -4px 4px 0px #C2B500;
 }
-
