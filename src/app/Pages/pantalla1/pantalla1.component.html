@@ -8,7 +8,7 @@
     <title>Cargo Orders</title>
 </head>
 
-<body class="bg-black text-white p-4">
+<body>
     <div class="max-w-md mx-auto">
         <div class="mb-6">
             <!-- Hader -->
@@ -51,7 +51,7 @@
                                 <p class="order-type">{{ order.type }}</p>
                             </span>
                             <span id="container-card-header">
-                                <div id="circle"></div>
+                                <div *ngIf="order.showCircle" id="circle"></div>
                                 <p class="status">{{ order.status }}</p>
                             </span>
                         </div>
@@ -64,7 +64,7 @@
                             <div class="column">
                                 <i class="fa fa-truck" aria-hidden="true"></i>
                                 <hr id="vertical">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <i class="fa fa-truck" aria-hidden="true"></i>
                             </div>
 
                             <div class="column">
@@ -104,8 +104,9 @@
                         </div>
 
                         <!-- Tercera fila: Botones -->
-                        <div class="row">
-                            <button *ngIf="order.showButtonLeft" class="buttonLeft">{{ order.pickupButtonText }}</button>
+                        <div class="button-row">
+                            <button *ngIf="order.showButtonLeft" class="buttonLeft">
+                                {{ order.pickupButtonText }}</button>
                             <button *ngIf="order.showButtonRight" class="buttonRight">
                                 {{ order.resumeButtonText }}
                                 <i class="fa fa-eye" aria-hidden="true"></i>
