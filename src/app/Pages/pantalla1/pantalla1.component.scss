@@ -22,6 +22,41 @@ h1 {
     padding: 0px;
 }
 
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab.active {
+    color: #FFEE00;
+}
+
+.tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 30px;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.tab.active::after {
+    background-color: #FFEE00;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ededed;
+}
+
+.tab-content.active {
+    display: block;
+}
+
 p {
     margin: 0px;
     font-family: 'Segoe UI', sans-serif;
@@ -46,23 +81,6 @@ a {
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-}
-
-.tab-line {
-    position: absolute;
-    bottom: 0;
-    border-radius: 10px;
-    left: 30%;
-    transform: translateX(-50%);
-    width: 25%;
-    height: 2px;
-    background-color: #FFEE00;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-li.active .tab-line {
-    opacity: 1;
 }
 
 .search-container {
@@ -153,7 +171,7 @@ p span:only-of-type {
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    margin: 1rem;
+    margin: 1em;
 }
 
 .row #container-card-header {

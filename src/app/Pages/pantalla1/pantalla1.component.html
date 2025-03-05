@@ -20,14 +20,34 @@
                 </span>
             </div>
 
-            <!-- Tabs -->
-            <ul class="tabs">
-                <li *ngFor="let tab of tabs; let i = index" [class.active]="activeTabIndex === i"
+            <!-- Tabs Intento 1 -->
+            <div class="tabs">
+                <div *ngFor="let tab of tabs; let i = index" [ngClass]="{ active: isActiveTab(i) }"
+                    (click)="selectTab(i)" class="tab">
+                    {{ tab.label }}
+                </div>
+            </div>
+
+
+            <!-- Tabs Intento 2 
+            <div class="tabs">
+                <button *ngFor="let tab of tabs; let i = index" [class.active]="activeTabIndex === i"
+                    id="tab-{{i}}"
                     (click)="setActiveTab(i)">
-                    <a href="#">{{ tab }}</a>
-                    <span class="tab-line"></span>
-                </li>
+                    <a class="tab" href="#">{{ tab }}</a>
+                </button>
+                <span class="tab-line"></span>
+            </div>
+        -->
+
+            <!-- Tabs Intento 3 
+
+            <ul class="tabs">
+                <li class="tab" id="tab1">Upcoming</li>
+                <li class="tab" id="tab2">Uploaded</li>
+                <li class="tab" id="tab3">Past</li>
             </ul>
+        -->
 
             <!-- Search -->
             <div class="search-container">
@@ -77,7 +97,7 @@
                                         <p class="location-name">{{ order.pickupLocation }}</p>
                                         <p class="date">{{ order.pickupDate }}</p>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <p class="address">{{ order.pickupAddress }}</p>
                                         <p class="time">{{ order.pickupTime }}</p>
@@ -93,7 +113,7 @@
                                         <p class="location-name">{{ order.dropoffLocation }}</p>
                                         <p class="date">{{ order.dropoffDate }}</p>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <p class="address">{{ order.dropoffAddress }}</p>
                                         <p class="time">{{ order.dropoffTime }}</p>

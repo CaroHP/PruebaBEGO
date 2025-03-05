@@ -10,12 +10,21 @@ import { Component } from '@angular/core';
 })
 
 export class Pantalla1Component {
-  tabs: string[] = ['Upcoming', 'Completed', 'Past'];
-  activeTabIndex: number = 0;
+  //Tabs
+  tabs = [
+    { label: 'Upcoming' },
+    { label: 'Uploaded' },
+    { label: 'Past' }
+  ];
 
-  //Cambiar de Pestania
-  setActiveTab(index: number): void {
+  activeTabIndex = 0;
+
+  selectTab(index: number): void {
     this.activeTabIndex = index;
+  }
+
+  isActiveTab(index: number): boolean {
+    return this.activeTabIndex === index;
   }
 
   // Cards
@@ -27,7 +36,7 @@ export class Pantalla1Component {
       showCircle: true,
       pickupLocation: 'New York',
       pickupTime: '12:00pm',
-      pickupAddress: '25 Mortada street, Gainalkes...',
+      pickupAddress: '25 Mortada street, Gainalkes..',
       pickupDate: '12/09/2023',
       dropoffLocation: 'New York',
       dropoffTime: '12:00pm',
@@ -58,8 +67,9 @@ export class Pantalla1Component {
     }
   ];
 
-  // Método para acceder a los detalles de cada orden
+ //GetterOrderDetails
   getOrderDetails(orderId: string) {
     return this.orders.find(order => order.orderId === orderId);
   }
 }
+
