@@ -1,145 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <title>Cargo Orders</title>
-</head>
-
-<body>
-    <div class="max-w-md mx-auto">
-        <div class="mb-6">
-            <!-- Hader -->
-            <div class="row">
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                <h1 class="header">Cargo Orders</h1>
-                <span style="color: yellow">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                </span>
+    <div class="">
+        <!-- Hader -->
+        <div class="row">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            <h1 class="header">Cargo Orders</h1>
+            <div style="color: yellow">
+                <i class="fa fa-bell" aria-hidden="true"></i>
             </div>
+        </div>
 
-            <!-- Tabs Intento 1 -->
-            <div class="tabs">
-                <div *ngFor="let tab of tabs; let i = index" [ngClass]="{ active: isActiveTab(i) }"
-                    (click)="selectTab(i)" class="tab">
-                    {{ tab.label }}
-                </div>
+        <!-- Tabs Intento 1 -->
+        <div class="tabs">
+            <div *ngFor="let tab of tabs; let i = index" [ngClass]="{ active: isActiveTab(i) }" (click)="selectTab(i)"
+                class="tab">
+                {{ tab.label }}
             </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <span class="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+        </div>
+
+        <!-- card 1 -->
+        <div class="cards-container">
+            <div *ngFor="let order of orders">
+                <!-- Order ID -->
+                <p class="order-id">Order <span>{{ order.orderId }}</span></p>
+                <div class="glass-card">
 
 
-            <!-- Tabs Intento 2 
-            <div class="tabs">
-                <button *ngFor="let tab of tabs; let i = index" [class.active]="activeTabIndex === i"
-                    id="tab-{{i}}"
-                    (click)="setActiveTab(i)">
-                    <a class="tab" href="#">{{ tab }}</a>
-                </button>
-                <span class="tab-line"></span>
-            </div>
-        -->
+                    <!-- Primera fila: "FCL" y "In Transit" -->
+                    <div class="row">
+                        <div id="container-card-header">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                            <p class="order-type">{{ order.type }}</p>
+                        </div>
+                        <div id="container-card-header">
+                            <div *ngIf="order.showCircle" id="circle"></div>
+                            <p class="status">{{ order.status }}</p>
+                        </div>
+                    </div>
 
-            <!-- Tabs Intento 3 
+                    <div class="row">
+                        <hr id="horizontal">
+                    </div>
 
-            <ul class="tabs">
-                <li class="tab" id="tab1">Upcoming</li>
-                <li class="tab" id="tab2">Uploaded</li>
-                <li class="tab" id="tab3">Past</li>
-            </ul>
-        -->
-
-            <!-- Search -->
-            <div class="search-container">
-                <span class="search">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </span>
-            </div>
-
-            <!-- card 1 -->
-            <div class="cards-container">
-                <div *ngFor="let order of orders">
-                    <!-- Order ID -->
-                    <p class="order-id">Order <span>{{ order.orderId }}</span></p>
-                    <div class="glass-card">
-
-
-                        <!-- Primera fila: "FCL" y "In Transit" -->
-                        <div class="row">
-                            <span id="container-card-header">
-                                <i class="fa fa-truck" aria-hidden="true"></i>
-                                <p class="order-type">{{ order.type }}</p>
-                            </span>
-                            <span id="container-card-header">
-                                <div *ngIf="order.showCircle" id="circle"></div>
-                                <p class="status">{{ order.status }}</p>
-                            </span>
+                    <div class="row">
+                        <div class="column">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                            <hr id="vertical">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
                         </div>
 
-                        <div class="row">
-                            <hr id="horizontal">
-                        </div>
-
-                        <div class="row">
+                        <div class="column">
+                            <!-- Pickup -->
                             <div class="column">
-                                <i class="fa fa-truck" aria-hidden="true"></i>
-                                <hr id="vertical">
-                                <i class="fa fa-truck" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="column">
-                                <!-- Pickup -->
-                                <div class="column">
-                                    <div class="row">
-                                        <p class="small-text">Pickup</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="location-name">{{ order.pickupLocation }}</p>
-                                        <p class="date">{{ order.pickupDate }}</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <p class="address">{{ order.pickupAddress }}</p>
-                                        <p class="time">{{ order.pickupTime }}</p>
-                                    </div>
+                                <div class="row">
+                                    <p class="small-text">Pickup</p>
+                                </div>
+                                <div class="row">
+                                    <p class="location-name">{{ order.pickupLocation }}</p>
+                                    <p class="date">{{ order.pickupDate }}</p>
                                 </div>
 
-                                <!-- Dropoff -->
-                                <div class="column">
-                                    <div class="row">
-                                        <p class="small-text">Dropoff</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="location-name">{{ order.dropoffLocation }}</p>
-                                        <p class="date">{{ order.dropoffDate }}</p>
-                                    </div>
+                                <div class="row">
+                                    <p class="address">{{ order.pickupAddress }}</p>
+                                    <p class="time">{{ order.pickupTime }}</p>
+                                </div>
+                            </div>
 
-                                    <div class="row">
-                                        <p class="address">{{ order.dropoffAddress }}</p>
-                                        <p class="time">{{ order.dropoffTime }}</p>
-                                    </div>
+                            <!-- Dropoff -->
+                            <div class="column">
+                                <div class="row">
+                                    <p class="small-text">Dropoff</p>
+                                </div>
+                                <div class="row">
+                                    <p class="location-name">{{ order.dropoffLocation }}</p>
+                                    <p class="date">{{ order.dropoffDate }}</p>
                                 </div>
 
+                                <div class="row">
+                                    <p class="address">{{ order.dropoffAddress }}</p>
+                                    <p class="time">{{ order.dropoffTime }}</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Tercera fila: Botones -->
-                        <div class="button-row">
-                            <button *ngIf="order.showButtonLeft" class="buttonLeft">
-                                {{ order.pickupButtonText }}</button>
-                            <button *ngIf="order.showButtonRight" class="buttonRight">
-                                {{ order.resumeButtonText }}
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </button>
                         </div>
+                    </div>
+
+                    <!-- Tercera fila: Botones -->
+                    <div class="button-row">
+                        <button *ngIf="order.showButtonLeft" class="buttonLeft">
+                            {{ order.pickupButtonText }}</button>
+                        <button href="/src/app/Pages/pantalla2/pantalla2.component.html" *ngIf="order.showButtonRight"
+                            class="buttonRight">
+                            {{ order.resumeButtonText }}
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            <!-- card 2 -->
-
-
         </div>
-    </div>
-</body>
+        <!-- card 2 -->
 
-</html>
+
+    </div>

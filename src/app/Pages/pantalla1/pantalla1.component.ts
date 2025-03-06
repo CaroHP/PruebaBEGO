@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-pantalla1',
   standalone:true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgIf, NgClass, NgFor],
   templateUrl: './pantalla1.component.html',
   styleUrl: './pantalla1.component.scss'
 })
@@ -13,7 +16,7 @@ export class Pantalla1Component {
   //Tabs
   tabs = [
     { label: 'Upcoming' },
-    { label: 'Uploaded' },
+    { label: 'Completed' },
     { label: 'Past' }
   ];
 
