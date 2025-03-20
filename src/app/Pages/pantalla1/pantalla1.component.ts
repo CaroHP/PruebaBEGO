@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { NgClass } from '@angular/common';
 import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pantalla1',
@@ -13,6 +14,17 @@ import { NgFor } from '@angular/common';
 })
 
 export class Pantalla1Component {
+  
+  //Cambiar de pantalla
+  constructor(private router: Router) { }
+
+  navegarAPantalla2() {
+    this.router.navigate(['/pantalla2']);
+  }
+
+  //ComportamientoBoton
+  
+
   //Tabs
   tabs = [
     { label: 'Upcoming' },
@@ -29,6 +41,7 @@ export class Pantalla1Component {
   isActiveTab(index: number): boolean {
     return this.activeTabIndex === index;
   }
+  
 
   // Cards
   orders = [
@@ -57,11 +70,11 @@ export class Pantalla1Component {
       showCircle: false,
       pickupLocation: 'Los Angeles',
       pickupTime: '1:00pm',
-      pickupAddress: '25 Mort',
+      pickupAddress: '25 Mortada street, Gainalkes..',
       pickupDate: '12/09/2023',
       dropoffLocation: 'Chicago',
       dropoffTime: '2:00pm',
-      dropoffAddress: '456 Oak street fadiaofjdda fajsdiofjao',
+      dropoffAddress: '1789 NJ-27, Edison, 08817..',
       dropoffDate: '12/09/2023',
       showButtonLeft: false,
       pickupButtonText: "It's time for pickup",
@@ -74,5 +87,6 @@ export class Pantalla1Component {
   getOrderDetails(orderId: string) {
     return this.orders.find(order => order.orderId === orderId);
   }
+
 }
 

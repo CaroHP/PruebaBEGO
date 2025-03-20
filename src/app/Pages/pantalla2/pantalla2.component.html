@@ -1,16 +1,100 @@
-<p>pantalla2 works!</p>
-
-
-       <!-- Hader -->
-       <div class="row">
+<!-- Hader -->
+<div class="header-container">
+    <button (click)="navegarAPantalla1()">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        <h1 class="header">Cargo Orders</h1>
-        <div style="color: yellow">
+    </button>
+    <h1 class="header">Cargo Orders</h1>
+    <button>
+        <div style="color: #FFEE00">
             <i class="fa fa-bell" aria-hidden="true"></i>
         </div>
-    </div>
+    </button>
+</div>
 
-    <!-- Tabs Intento 1 -->
-    <div class="tabs">
-        Aqui van las tabs
+<!-- Card 1 -->
+ <div class="order-container">
+     <mat-card class="glass">
+         <div class="column">
+             <!-- Header -->
+             <div class="column">
+                 <p class="referencia">Referencia A1180</p>
+                 <p class="order-id">Order <span>#568F65</span></p>
+             </div>
+             <!-- Left -->
+             <div class="row">
+                 <div class="column">
+                     <i class="fa fa-truck" aria-hidden="true"></i>
+                     <hr id="vertical-line">
+                     <div class="big-circle"></div>
+                 </div>
+     
+                 <!-- Right -->
+                 <div class="column">
+                     <p class="small-text">Pickup</p>
+                     <p class="location-text"> New York</p>
+                     <p class="address-text">25 Mortada street, Gainalkes..</p>
+                     <div class="status-container">
+                         <div class="row">
+                             <div id="medium-circle"></div>
+                             <p class="status-text">On hold</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </mat-card>
+ </div>
+
+<div>
+    <!-- Card 2 -->
+    <mat-card class="status-card-container">
+        <div class="profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Image" />
+        </div>
+        <h2>10:30 PM</h2>
+
+        <div class="status">
+            <div class="status-item completed">
+                <mat-icon>check_circle</mat-icon>
+                <span>Created Order</span>
+            </div>
+            <div class="status-item completed">
+                <mat-icon>check_circle</mat-icon>
+                <span>Accepted Order</span>
+            </div>
+            <div class="status-item pending">
+                <mat-icon>radio_button_unchecked</mat-icon>
+                <span>Pickup set up by William</span>
+            </div>
+            <div class="status-item pending">
+                <mat-icon>radio_button_unchecked</mat-icon>
+                <span>Pickup Completed</span>
+            </div>
+        </div>
+
+        <button mat-raised-button class="track-btn">
+            Track Order
+        </button>
+    </mat-card>
+
+</div>
+
+<!-- DropDown -->
+
+<div (click)="DropdownBehaviour()" id="myDropdown">
+    <div class="dropdown">
+        <div class="row">
+            <button>Pickup Data</button>
+            <i class="fa fa-chevron-up" aria-hidden="true" style="color: #FFEE00;"></i>
+        </div>
+        <p>Isidro Fabela 10, Valle Verde y Terminal, <br>
+            50140 Toluca de Lerdo, México</p>
+        <div>
+            <p>14 de Octubre 2023</p>
+            <div id="small-circle"></div>
+            <p>10:30</p>
+        </div>
+        <p>+525567890346</p>
+        <p>johndoe&#64;gmail.com</p>
     </div>
+</div>

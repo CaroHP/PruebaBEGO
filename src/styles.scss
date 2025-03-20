@@ -1,8 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 body {
     color: #ededed;
     background: #080c0f;
     font-family: "Segoe UI", sans-serif;
-    padding: 30px 10px 0px 10px;
     cursor: auto;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+button {
+    all: unset
+}
+
+html,
+body {
+    height: 100%;
+}
+

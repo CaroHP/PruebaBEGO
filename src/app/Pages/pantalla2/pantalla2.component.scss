@@ -1,0 +1,220 @@
+@use '/Users/carolinahernandezpacheco/Documents/PruebaBEGO/src/app/Pages/_mixins.scss' as m;
+
+h1 {
+    font-size: 20px;
+    color: #EDEDED;
+}
+
+p {
+    font-family: Roboto;
+    color: #EDEDED;
+}
+
+.header-container {
+    @include m.flex (space-between, center);
+    padding: 30px 10px 0px 10px;
+}
+
+.referencia {
+    font-size: 13.1px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+}
+
+.order-id {
+    font-weight: 600;
+    font-size: 17.5px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+}
+
+.small-text {
+    color: #4C4D4E;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: 800;
+    font-size: 11.2px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    width: 43;
+    height: 15;
+    top: 88px;
+    left: 98px;
+
+}
+
+.location-text {
+    font-weight: 800;
+    font-size: 15.5px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+}
+
+.address-text {
+    color: #7B7D7E;
+    font-weight: 600;
+    font-size: 14.5px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+
+}
+
+.status-text {
+    font-weight: 800;
+    font-size: 15.5px;
+    line-height: 100%;
+    vertical-align: middle;
+    margin: .1em;
+
+
+}
+
+.order-container {
+    @include m.flex(flex-end, center);
+
+}
+
+.glass {
+    @include m.card-glass(16px 0px 0px 16px);
+    color: white;
+    margin-bottom: 50px;
+}
+
+.glass::before {
+    @include m.card-glass-stroke(16px 0px 0px 16px);
+    padding: 1.5px;
+}
+
+#vertical-line {
+    width: 1.5px;
+    height: 7.5em;
+    border-radius: 10px;
+    border: 0;
+    background: linear-gradient(#d9d9d9aa, #0f131527);
+}
+
+.status-card-container {
+    width: 320px;
+    background: #161616;
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+    .profile {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        img {
+            z-index: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .status {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 15px 0;
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            margin: 8px 0;
+
+            mat-icon {
+                font-size: 18px;
+            }
+
+            &.completed mat-icon {
+                color: #ffeb3b;
+            }
+
+            &.pending {
+                color: #777;
+            }
+        }
+    }
+
+    .track-btn {
+        width: 100%;
+        background: #ffeb3b;
+        color: black;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+}
+
+div.status-container {
+    @include m.flex(center, center);
+    padding: .1em;
+    width: 90px;
+    height: 21px;
+    top: 3px;
+    left: 3px;
+    border-width: 1px;
+    border-radius: 9.75px;
+    background: #293139fe;
+}
+
+#medium-circle {
+    margin-right: 10px;
+    background: #0C7DED;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.big-circle {
+    z-index: -1;
+    position: relative;
+    background: #0E151A;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+
+.row {
+    @include m.flex(space-between, center);
+}
+
+.column {
+    @include m.flex(center, stretch);
+    flex-direction: column;
+    margin: 1em;
+}
+
+.dropdown {
+    @include m.card-glass(16px);
+    color: #EDEDED;
+    position: relative;
+    padding: 15px 10px;
+}
+
+.dropdown::before {
+    @include m.card-glass-stroke(16px);
+    padding: 1.5px;
+}

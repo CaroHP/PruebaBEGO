@@ -1,23 +1,25 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@use '/Users/carolinahernandezpacheco/Documents/PruebaBEGO/src/app/Pages/_mixins.scss' as m;
 
 h1 {
     font-size: 20px;
     color: #EDEDED;
 }
 
-.tabs {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
+.header-container{
+    @include m.flex (space-between, center);
+    padding: 30px 10px 0px 10px; 
+}
+
+.tab-container{
+    @include m.flex (space-between, center);
+    padding: 0em 1em;
 }
 
 .tab {
     cursor: pointer;
     position: relative;
-    padding: 10px 0px;;
+    padding: 10px 0px;
+    ;
 }
 
 .tab.active {
@@ -77,16 +79,14 @@ a {
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;
-    padding: 1em 0em;
+    @include m.flex(center, center);
+    padding: 1em;
 }
 
 .search {
     padding: 10px;
     border-bottom: 2.5px solid #2C2C2C;
     width: 100%;
-
 }
 
 p span:only-of-type {
@@ -103,38 +103,26 @@ p span:only-of-type {
     font-size: 14px;
 }
 
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .glass-card {
-    position: relative;
-    border: 4px solid transparent;
-    border-radius: 16px;
+    @include m.card-glass(20px);
     padding: 2px;
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    background-clip: padding-box;
-    backdrop-filter: 0px;
-    position: relative;
-    border-radius: 20px;
-    max-width: 400px;
     color: white;
+    margin-bottom: 50px;
+    max-width: 400px;
+    max-height: 300px;
 }
 
 .glass-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
+    @include m.card-glass-stroke(20px);
     padding: 1.5px;
-    background: radial-gradient(101.94% 299.93% at 63.49% 102.55%,
-            #000000 21.31%,
-            rgba(186, 186, 186, 0.489583) 55.21%,
-            rgba(132, 132, 132, 0) 99.25%);
-    mask: 0;
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+
 }
 
 #horizontal {
@@ -154,23 +142,17 @@ p span:only-of-type {
 }
 
 .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include m.flex (space-between, center);
 }
 
 .column {
-    display: flex;
+    @include m.flex(center, stretch);
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
     margin: 1em;
 }
 
 .row #container-card-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include m.flex(space-around, center);
     margin: 10px 20px;
 }
 
@@ -225,8 +207,7 @@ p span:only-of-type {
     font-weight: 500;
     font-size: 12.6px;
     line-height: 17.21px;
-    letter-spacing: 0%;
-    margin: 0px;
+    margin-right: 15px;
     color: #909192;
 }
 
@@ -246,35 +227,15 @@ p span:only-of-type {
     align-items: center;
 }
 
-.buttonLeft {
+#buttonLeft {
+    @include m.button-style(55%, 0px 30px 30px 30px, inset -4px -4px 4px 0px #C2B500);
+    z-index: 1;
     margin-right: auto;
     padding: 0.5rem;
-    width: 55%;
-    height: fit-content;
-    font-weight: 500;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 0px 30px 30px 30px;
-    border: 0;
-    color: #080c0f;
-    background-color: #FFEE00;
-    cursor: pointer;
-    box-shadow: inset -4px -4px 4px 0px #C2B500;
 }
 
-.buttonRight {
+#buttonRight {
+    @include m.button-style(35%, 30px 0px 30px 30px, inset -4px -4px 4px 0px #C2B500);
+    z-index: 0;
     padding: 0.5rem;
-    width: 35%;
-    height: fit-content;
-    font-weight: 500;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 30px 0px 30px 30px;
-    border: 0;
-    color: #080c0f;
-    background: #FFEE00;
-    cursor: pointer;
-    box-shadow: inset -4px -4px 4px 0px #C2B500;
 }
