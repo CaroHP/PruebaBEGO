@@ -1,13 +1,31 @@
-@use '/Users/carolinahernandezpacheco/Documents/PruebaBEGO/src/app/Pages/_mixins.scss' as m;
+@use '../_mixins.scss' as m;
+
+
+// Variables Globales
+$primary-color: #FFEE00;
+$secondary-color: #EDEDED;
+$text-color: #bbbbbb;
+$background-color: #2C2C2C;
+
+//Textos Globales
+h1,
+p,
+a {
+    font-family: 'Segoe UI', sans-serif;
+    color: $text-color;
+    margin: 0px;
+}
 
 h1 {
     font-size: 20px;
-    color: #EDEDED;
+    color: $secondary-color;
 }
 
-p {
-    font-family: Roboto;
-    color: #EDEDED;
+//Header
+.header-container {
+    @include m.flex(space-between, center);
+    padding: 30px 10px 0px;
+    margin: 1em;
 }
 
 .header-container {
@@ -179,7 +197,64 @@ div.status-container {
     background: #293139fe;
 }
 
-#medium-circle {
+.big-circle {
+    z-index: 0;
+    width: 35px;
+    height: 35px;
+    background: white;
+    top: 1px;
+}
+
+.big-circle2 {
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    background: red;
+}
+
+.circle-container {
+    @include m.flex(center, center);
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.circle-container .circle {
+    position: absolute;
+    border-radius: 100%;
+}
+
+.circle-container .circle.circle1 {
+    width: 40.26px;
+    height: 40.26px;
+    border: 1px solid $primary-color;
+}
+
+.circle-container .circle.circle2 {
+    width: 32px;
+    height: 32px;
+    backdrop-filter: blur(70px);
+    box-shadow: 1px -4px 7.5px 0px #C2B500 inset;
+    background: $primary-color;
+
+}
+
+.circle-container .circle.circle3 {
+    width: 35px;
+    height: 35px;
+    background: #0E151A;
+    box-shadow: 0px 4px 4px 0px #00000080;
+
+}
+
+.circle-container .circle.circle4 {
+    width: 26.7px;
+    height: 26.7px;
+    border: 1px solid #26333C;
+}
+
+.medium-circle {
+    z-index: 1;
     margin-right: 10px;
     background: #0C7DED;
     border-radius: 50%;
@@ -187,15 +262,11 @@ div.status-container {
     height: 10px;
 }
 
-.big-circle {
-    z-index: -1;
-    position: relative;
-    background: #0E151A;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-}
 
+
+
+
+//Grid
 
 .row {
     @include m.flex(space-between, center);

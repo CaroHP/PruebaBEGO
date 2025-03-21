@@ -1,83 +1,64 @@
-@use '/Users/carolinahernandezpacheco/Documents/PruebaBEGO/src/app/Pages/_mixins.scss' as m;
+@use '../_mixins.scss' as m;
+
+
+// Variables Globales
+$primary-color: #FFEE00;
+$secondary-color: #EDEDED;
+$text-color: #bbbbbb;
+$background-color: #2C2C2C;
+
+//Textos Globales
+h1, p, a {
+    font-family: 'Segoe UI', sans-serif;
+    color: $text-color;
+    margin: 0px;
+}
 
 h1 {
     font-size: 20px;
-    color: #EDEDED;
+    color: $secondary-color;
 }
 
-.header-container{
-    @include m.flex (space-between, center);
-    padding: 30px 10px 0px 10px; 
+
+//Header
+.header-container {
+    @include m.flex(space-between, center);
+    padding: 30px 10px 0px;
 }
 
-.tab-container{
-    @include m.flex (space-between, center);
-    padding: 0em 1em;
+//Tabs
+.tab-container {
+    @include m.flex(space-between, center);
+    padding: 1em;
 }
 
 .tab {
     cursor: pointer;
     position: relative;
-    padding: 10px 0px;
-    ;
+    padding: 10px 0;
+
+    &.active {
+        color: $primary-color;
+
+        &::after {
+            background-color: $primary-color;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background-color: transparent;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
 }
 
-.tab.active {
-    color: #FFEE00;
-}
-
-.tab::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background-color: transparent;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-}
-
-.tab.active::after {
-    background-color: #FFEE00;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px;
-    border-top: 1px solid #ededed;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-p {
-    margin: 0px;
-    font-family: 'Segoe UI', sans-serif;
-    color: #bbbbbb;
-
-}
-
-li {
-    position: relative;
-    line-height: 38px;
-    overflow: hidden;
-    padding: 0;
-}
-
-a {
-    color: #EDEDED;
-    font-weight: 500;
-    letter-spacing: 0;
-    outline: none;
-    padding: 0 20px;
-    text-decoration: none;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-
+// Search
 .search-container {
     @include m.flex(center, center);
     padding: 1em;
@@ -85,7 +66,7 @@ a {
 
 .search {
     padding: 10px;
-    border-bottom: 2.5px solid #2C2C2C;
+    border-bottom: 2.5px solid $background-color;
     width: 100%;
 }
 
@@ -97,17 +78,18 @@ p span:only-of-type {
     color: #EDEDED;
 }
 
-.order-id {
-    padding: 10px 0px;
-    color: #bbbbbb;
-    font-size: 14px;
-}
-
+// Card
 .card-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+// Card Header
+.row #container-card-header {
+    @include m.flex(space-around, center);
+    margin: 10px 20px;
 }
 
 .glass-card {
@@ -117,32 +99,33 @@ p span:only-of-type {
     margin-bottom: 50px;
     max-width: 400px;
     max-height: 300px;
+
+    &::before {
+        @include m.card-glass-stroke(20px);
+        padding: 1.5px;
+    }
 }
 
-.glass-card::before {
-    @include m.card-glass-stroke(20px);
-    padding: 1.5px;
-
-}
-
+// Líneas Separadoras
 #horizontal {
     width: 99%;
     height: 1.5px;
     border-radius: 10%;
-    border: 0;
     background-color: grey;
+    border: none;
 }
 
 #vertical {
     width: 1.5px;
     height: 7.5em;
     border-radius: 10px;
-    border: 0;
     background: linear-gradient(#d9d9d9aa, #0f131527);
+    border: none;
 }
 
+// Grid System
 .row {
-    @include m.flex (space-between, center);
+    @include m.flex(space-between, center);
 }
 
 .column {
@@ -151,26 +134,27 @@ p span:only-of-type {
     margin: 1em;
 }
 
-.row #container-card-header {
-    @include m.flex(space-around, center);
-    margin: 10px 20px;
+.order-id {
+    padding: 10px 0px;
+    color: #bbbbbb;
+    font-size: 14px;
 }
 
-.order-type {
+
+// Tipografía Específica
+.order-type,
+.location-name {
     font-family: Avenir;
     font-weight: 800;
     font-size: 15.5px;
-    line-height: 21.17px;
-    letter-spacing: 0%;
-    color: #EDEDED;
-    margin-left: 20px;
+    color: $secondary-color;
+    margin-left: 10px;;
 }
 
 .status {
     font-size: 10.7px;
     font-weight: bold;
-    line-height: 14.21px;
-    color: #ededed;
+    color: $secondary-color;
 }
 
 #circle {
@@ -182,38 +166,22 @@ p span:only-of-type {
 }
 
 .small-text {
-    justify-content: flex-start;
     text-transform: uppercase;
-    font-family: Avenir;
     font-weight: 800;
     font-size: 7.9px;
-    line-height: 10.79px;
-    letter-spacing: 0%;
     color: #535455;
-
 }
 
-.location-name {
-    font-family: Avenir;
-    font-weight: 800;
-    font-size: 15.5px;
-    line-height: 21.17px;
-    letter-spacing: 0%;
-    color: #EDEDED;
-}
-
+// Dirección y Hora
 .address {
-    font-family: Avenir;
     font-weight: 500;
     font-size: 12.6px;
-    line-height: 17.21px;
-    margin-right: 15px;
     color: #909192;
 }
 
 .time {
     font-size: 12.2px;
-    color: #bbbbbb;
+    color: $text-color;
 }
 
 .date {
@@ -221,10 +189,9 @@ p span:only-of-type {
     color: #696A6B;
 }
 
+// Botones
 .button-row {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    @include m.flex(end, center);
 }
 
 #buttonLeft {
